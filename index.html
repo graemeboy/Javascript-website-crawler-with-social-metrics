@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>Social Media Engagement Analysis</title>
+    <link rel="stylesheet" href="./css/min.bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Navigation -->
+
+    <div id="navigation-bar" style="display:none;">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Social Network Engagement Analysis</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#raw">Raw Data</a></li>
+
+                        <li><a href="#perNetwork">Popularity Per Network</a></li>
+
+                        <li><a href="#topPosts">Top Posts</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+
+        <div id="header-area">
+            <div class="header">
+                <h2>Social Network Engagement Analysis</h2>
+
+                <h4>Type the address of the website you want to analyze below.</h4>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="interaction-field col-md-offset-2 col-md-8">
+                        <form id="url-form" action="/data" method="post" class="form-horizontal">
+                            <div class="input-group">
+                                <span class="input-group-addon">http://</span> <input type="text" id="url-field" name="url" class="form-control" placeholder="example.com">
+                            </div><!-- input-group -->
+
+                            <div id="url-help" class="help-block" style="height:25px;text-align:center;">
+                                <span style="display:none;">Press "Enter" to continue</span>
+                            </div>
+                        </form>
+                    </div><!-- interaction-field -->
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- #header-area -->
+        <!-- information loading area -->
+
+        <div class="col-md-offset-2 col-md-8">
+            <div id="init-msg" style="display:none;height:120px;margin-top:-10px;">
+                <h3 class="lead" style="text-align:center;display:block;">Crawling <span id="websiteName"></span> for Links...</h3>
+
+                <div class="lead" style="text-align:center;font-size:12px;">
+                    Found <span id="found-num">0</span> distinct links
+                </div><!-- lead -->
+
+                <div class="loading-bar"></div><!-- .loading-bar -->
+            </div><!-- init-msg -->
+
+            <div id="progress" style="display:none;">
+                <h3 class="lead" style="text-align:center;margin-top:0px;"></h3>
+
+                <div class="progress" style="text-align:center;">
+                    <div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0;">
+                        <span><span id="curProg">5</span>% Complete</span>
+                    </div><!-- #progressBar -->
+                </div><!-- .progress -->
+            </div><!-- #progress -->
+        </div><!-- col-md-offset-2 -->
+
+        <div id="data-area" style="display:none">
+            <!-- data-area -->
+
+            <div class="clearfix"></div>
+
+            <div id="raw" class="raw-data">
+                <h3>Raw Data</h3>
+
+                <table id="data-table" class="table table-striped">
+                    <thead>
+                        <tr id="data-head">
+                            <th class="col-md-6">Webpage</th>
+
+                            <th><img src="img/facebook.png" class="data-icon"></th>
+
+                            <th><img src="img/twitter.png" class="data-icon"></th>
+
+                            <th><img src="img/linkedin.png" class="data-icon"></th>
+
+                            <th><img src="img/pinterest.png" class="data-icon"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="data-body"></tbody>
+                </table>
+            </div><!-- raw -->
+
+            <div id="perNetwork" class="graph-1">
+                <h3>Popularity Per Network</h3>
+            </div>
+
+            <div id="topPosts" class="graph-2">
+                <h3>Top Post Distribution</h3>
+
+                <ul id="top-posts"></ul>
+            </div>
+        </div><!-- #data-area -->
+    </div><!-- Javascript files -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js" type="text/javascript">
+</script><script type="text/javascript" src="./js/script.js">
+</script><script type="text/javascript" src="js/jquery.tablesorter.min.js">
+</script><script src="http://d3js.org/d3.v3.min.js" type="text/javascript">
+</script><script type="text/javascript" src="js/visualizations.js">
+</script>
+</body>
+</html>

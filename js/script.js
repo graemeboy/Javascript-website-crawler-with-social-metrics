@@ -165,8 +165,6 @@
 		/*
 		 *	Social Networking Get Methods
 		 */
-		//getFacebookShares(new Array('http://pythoughts.com/app-engine-datastore-workarounds-and-search/'), 0);
-
 		function getFacebookShares(links, num) {
 			if (num < links.length) {
 				console.log('Num: ' + num + ", links: " + links.length);
@@ -206,8 +204,6 @@
 				getTwitterShares(links, 0);
 			}
 		}
-		//getPinterestShares(new Array('http://viperchill.com'), 0);
-
 		function getPinterestShares(links, num) {
 			if (num < links.length) {
 				var url = links[num];
@@ -245,8 +241,6 @@
 				updateProgress();
 			}
 		}
-		//getLinkedInShares(new Array('http://viperchill.com'), 0);
-
 		function getLinkedInShares(links, num) {
 			if (num < links.length) {
 				var url = links[num];
@@ -284,106 +278,6 @@
 				getPinterestShares(links, 0);
 			} // over num
 		} // getLinkedInUponShares
-		
-		
-/*
-		getStumbleUponShares(new Array('http://www.viperchill.com'), 0);
-		function getStumbleUponShares(links, num) {
-			socUrl = "http://www.stumbleupon.com/services/1.01/badge.getinfo?url=" + url + "&callback=?";
-			var url = links[num];
-				linkTag = stripUrl(url);
-				console.log(socUrl);
-				$.ajax({
-					url: socUrl,
-					dataType: 'json',
-					done: function(data) {
-						console.log(data);
-if (data.result !== undefined) {
-							numShare = data.result.views;
-						} else {
-							numShare = 0;
-						}
-						console.log("LinkedIn shares: " + data.result.views
-);
-						//$('#link-' + linkTag + '-linkedin').html(numShare);
-						//incrementProgressBar();
-						//getLinkedInShares(links, num + 1);
-					},
-					// success
-					error: function() {
-						numShare = 'unknown';
-						console.log("LinkedIn error on : " + url);
-						//incrementProgressBar();
-						//getLinkedInShares(links, num + 1);
-					} //error
-				}); // ajax
-		}
-*/
-		
-		//getGooglePlusShares(new Array('http://viperchill.com'), 0);
-		function getGooglePlusShares(links, num) {
-			if (num < links.length) {
-				var url = links[num];
-				socUrl = 'https://clients6.google.com/rpc?key=AIzaSyDeS-6utrfnlcoj5G8Kjdkilbx_mbtLQlM';
-				var postData = [{
-					"method": "pos.plusones.get",
-					"id": "p",
-					"params": {
-						"nolog": true,
-						"id": url,
-						"source": "widget",
-						"userId": "@viewer",
-						"groupId": "@self"
-					},
-					"jsonrpc": "2.0",
-					"key": "p",
-					"apiVersion": "v1"
-				}];
-				$.ajax({
-					type: "post",
-					url: socUrl,
-					data: {
-                method: "pos.plusones.get",
-                id: "p",
-                params: {
-                        nolog: true,
-                        id: "http://www.viperchill.com",
-                        source: "widget",
-                        userId: "@viewer",
-                        groupId: "@self"
-                },
-                jsonrpc: "2.0",
-                key: "p",
-                apiVersion: "v1"
-        },
-					dataType: 'jsonp',
-					success: function(data) {
-						console.log(data);
-/*
-if (data.count !== undefined) {
-							numShare = data.count;
-						} else {
-							numShare = 0;
-						}
-						console.log("LinkedIn shares: " + data.count);
-						$('#link-' + linkTag + '-linkedin').html(numShare);
-						incrementProgressBar();
-						getLinkedInShares(links, num + 1);
-*/
-					},
-					// success
-					error: function() {
-/*
-numShare = 'unknown';
-						console.log("LinkedIn error on : " + url);
-						incrementProgressBar();
-						getLinkedInShares(links, num + 1);
-*/
-					} //error
-				}); // ajax
-				//console.log(postData);
-			} // if num
-		} // getGooglePlusShares
 
 		function getTwitterShares(links, num) {
 			//console.log("Doing twitter");
